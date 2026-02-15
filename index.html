@@ -109,12 +109,12 @@
       width:100%;
       height:100%;
       object-fit: cover;
-      object-position: center 15%;
+      object-position: center 12%;
       display:block;
       transform: scale(1.02);
     }
 
-    /* Cards */
+    /* Sections */
     .section{
       background:var(--card);
       padding:18px;
@@ -193,15 +193,32 @@
       transform: translateY(-2px);
       border-color: rgba(88,166,255,.85);
     }
+
+    /* COVER PREVIEW (image) */
     .p-cover{
-      height: 150px;
-      background: linear-gradient(135deg, rgba(88,166,255,.15), rgba(255,255,255,.03));
+      height: 170px;
       border-bottom: 1px solid rgba(48,54,61,.6);
-      display:flex;
-      align-items:flex-end;
-      padding: 12px 14px;
+      position: relative;
+      overflow: hidden;
+      background: rgba(255,255,255,.02);
     }
-    .p-cover b{ font-size: 14px; color: rgba(230,237,243,.95); }
+    .p-cover img{
+      width:100%;
+      height:100%;
+      object-fit: cover;
+      display:block;
+      transform: scale(1.02);
+    }
+    .p-cover .title{
+      position:absolute;
+      left:0; right:0; bottom:0;
+      padding: 12px 14px;
+      background: linear-gradient(to top, rgba(0,0,0,.78), rgba(0,0,0,0));
+      font-size: 14px;
+      font-weight: 700;
+      color: rgba(230,237,243,.95);
+    }
+
     .p-body{ padding: 14px; }
     .tags{
       display:flex;
@@ -250,26 +267,31 @@
       display:block;
     }
 
-    /* Motor image (clean frame, no black “exterior”) */
-    .motor{
-      margin-top:10px;
+    /* MOTOR small on the left */
+    .work-flex{ margin-top:10px; }
+    .motor-left{
+      width: 240px;
+      max-width: 100%;
       border: 1px solid var(--border);
       border-radius: 16px;
-      overflow:hidden;
+      overflow: hidden;
       background: rgba(255,255,255,.02);
-      transition: transform .18s ease, border-color .18s ease;
     }
-    .motor:hover{
-      transform: translateY(-2px);
-      border-color: rgba(88,166,255,.85);
-    }
-    .motor img{
+    .motor-left img{
       width:100%;
-      height: 220px;
-      object-fit: contain;     /* show full motor */
-      background: transparent; /* no big black area */
+      height: 170px;
+      object-fit: cover;
+      object-position: center;
       display:block;
-      padding: 8px;
+    }
+    @media(min-width: 760px){
+      .work-flex{
+        display:flex;
+        gap:14px;
+        align-items:flex-start;
+      }
+      .motor-left{ flex: 0 0 auto; }
+      .work-text{ flex:1; }
     }
 
     /* Soft skills chips */
@@ -320,7 +342,6 @@
   </div>
 
   <main class="container">
-
     <section class="hero">
       <div class="hero-left">
         <h1>Entry-Level Data Analyst</h1>
@@ -335,7 +356,7 @@
 
         <div class="actions" style="margin-top:14px;">
           <a class="button" href="http://public.tableau.com/app/profile/muhammad.nur.zhifar/vizzes" target="_blank" rel="noreferrer">Tableau</a>
-          <a class="button" href="https://github.com/jiovarjiovanna" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="button secondary" href="https://github.com/jiovarjiovanna" target="_blank" rel="noreferrer">GitHub</a>
         </div>
       </div>
 
@@ -358,10 +379,12 @@
       <h2>Projects</h2>
 
       <div class="grid">
-
         <!-- 1 -->
         <div class="p-card">
-          <div class="p-cover"><b>DEEPP — End-to-End Churn Analysis</b></div>
+          <div class="p-cover">
+            <img src="./cover-deep.png" alt="DEEPP project cover">
+            <div class="title">DEEPP — End-to-End Churn Analysis</div>
+          </div>
           <div class="p-body">
             <div class="tags">
               <span class="tag">Python</span>
@@ -381,7 +404,10 @@
 
         <!-- 2 -->
         <div class="p-card">
-          <div class="p-cover"><b>Customer Segmentation (Python)</b></div>
+          <div class="p-cover">
+            <img src="./cover-phyton.png" alt="Customer Segmentation cover">
+            <div class="title">Customer Segmentation (Python)</div>
+          </div>
           <div class="p-body">
             <div class="tags">
               <span class="tag">Python</span>
@@ -400,7 +426,10 @@
 
         <!-- 3 -->
         <div class="p-card">
-          <div class="p-cover"><b>REVO Grocers — Sales Performance (SQL)</b></div>
+          <div class="p-cover">
+            <img src="./cover-sql.png" alt="REVO Grocers SQL cover">
+            <div class="title">REVO Grocers — Sales Performance (SQL)</div>
+          </div>
           <div class="p-body">
             <div class="tags">
               <span class="tag">SQL</span>
@@ -419,7 +448,10 @@
 
         <!-- 4 -->
         <div class="p-card">
-          <div class="p-cover"><b>TokoBli — Campaign & Product Page (Excel)</b></div>
+          <div class="p-cover">
+            <img src="./cover-excel.png" alt="TokoBli Excel cover">
+            <div class="title">TokoBli — Campaign & Product Page (Excel)</div>
+          </div>
           <div class="p-body">
             <div class="tags">
               <span class="tag">Excel</span>
@@ -435,7 +467,6 @@
             </div>
           </div>
         </div>
-
       </div>
     </section>
 
@@ -456,12 +487,17 @@
         <div style="flex:1;">
           <h3 style="margin:0;">Custom Motorcycle Builder — SpeedForFun Motorcycle</h3>
           <p class="muted" style="margin:4px 0 0;">Dec 2023 — Present</p>
-          <p style="margin:10px 0 0;">
-            Designed and built custom motorcycles based on client requirements, handling the full process from concept to execution.
-          </p>
 
-          <div class="motor">
-            <img src="./motor1.jpg" alt="Custom motorcycle built by Muhammad Nur Zhifar" />
+          <div class="work-flex">
+            <div class="motor-left">
+              <img src="./motor1.jpg" alt="Custom motorcycle built by Muhammad Nur Zhifar" />
+            </div>
+
+            <div class="work-text">
+              <p style="margin:0;">
+                Designed and built custom motorcycles based on client requirements, handling the full process from concept to execution.
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -503,11 +539,8 @@
 
       <h2 style="margin-top:14px;">Soft Skills</h2>
       <div class="soft">
-        <span class="chip">Calm under pressure</span>
-        <span class="chip">Detail-focused</span>
-        <span class="chip">Practical problem solving</span>
-        <span class="chip">Consistent execution</span>
-        <span class="chip">Independent learning</span>
+        <span class="chip">Deep focus (quiet environments)</span>
+        <span class="chip">Independent problem solving</span>
       </div>
     </section>
 
