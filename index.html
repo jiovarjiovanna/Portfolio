@@ -6,7 +6,6 @@
 <title>Muhammad Nur Zhifar — Data Analyst Portfolio</title>
 
 <style>
-
 :root{
   --bg:#0d1117;
   --card:#161b22;
@@ -14,446 +13,505 @@
   --text:#e6edf3;
   --accent:#58a6ff;
   --border:#30363d;
+  --btn:#21262d;
 }
 
-*{
-  box-sizing:border-box;
-}
-
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
 body{
   margin:0;
   background:var(--bg);
   color:var(--text);
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial;
-  line-height:1.5;
+  line-height:1.55;
 }
 
-/* layout */
-
 .container{
-  max-width:1000px;
+  max-width:1040px;
   margin:auto;
   padding:24px;
 }
 
-/* navbar */
-
+/* ===== Topbar ===== */
 .topbar{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:28px;
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(13,17,23,.86);
+  backdrop-filter: blur(10px);
+  border-bottom:1px solid var(--border);
 }
+.topbar-inner{
+  max-width:1040px;
+  margin:auto;
+  padding:12px 24px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+.brand{ font-weight:800; letter-spacing:-.2px; }
 
 .nav{
   display:flex;
-  gap:18px;
+  gap:16px;
+  flex-wrap:wrap;
 }
-
 .nav a{
   color:var(--muted);
   text-decoration:none;
   font-size:14px;
 }
+.nav a:hover{ color:var(--accent); }
 
-.nav a:hover{
-  color:var(--accent);
-}
-
-/* hero */
-
+/* ===== Hero ===== */
 .hero{
   display:flex;
   gap:20px;
   align-items:center;
-  margin-bottom:28px;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  margin:22px 0 28px;
 }
 
-.avatar{
-  width:110px;
-  height:110px;
-  border-radius:50%;
-  border:2px solid var(--border);
-  object-fit:cover;
-}
-
+.hero-left{ min-width:260px; flex:1; }
 .hero h1{
   margin:0;
-  font-size:24px;
+  font-size:44px;
+  letter-spacing:-.8px;
 }
-
 .hero p{
-  margin:4px 0 0;
+  margin:8px 0 0;
   color:var(--muted);
+  font-size:18px;
 }
 
-/* section */
+/* Profile photo (NO CROP) */
+.avatar{
+  width:140px;
+  height:140px;
+  border-radius:50%;
+  border:2px solid var(--border);
+  background:var(--bg);
+  padding:6px;
+  object-fit:contain;
+  object-position:center top;
+}
 
+/* quick action buttons */
+.actions{
+  margin-top:14px;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.button{
+  display:inline-block;
+  padding:8px 14px;
+  border-radius:12px;
+  border:1px solid var(--border);
+  background:var(--btn);
+  color:var(--text);
+  text-decoration:none;
+  font-size:14px;
+  transition: transform .15s ease, border-color .15s ease, background .15s ease;
+}
+.button:hover{
+  transform:translateY(-1px);
+  border-color:var(--accent);
+  background:#2a3038;
+}
+.button.secondary{
+  background:transparent;
+  color:var(--text);
+  opacity:.9;
+}
+.button.secondary:hover{
+  background:rgba(255,255,255,.04);
+}
+
+/* ===== Sections ===== */
 .section{
-  margin-bottom:30px;
+  margin:26px 0;
 }
-
 .section h2{
-  margin-bottom:12px;
+  margin:0 0 14px;
+  font-size:36px;
+  letter-spacing:-.6px;
 }
 
-/* cards */
-
+/* ===== Project Grid ===== */
 .grid{
   display:grid;
   grid-template-columns:1fr;
   gap:16px;
 }
-
 @media(min-width:900px){
-  .grid{
-    grid-template-columns:1fr 1fr;
-  }
+  .grid{ grid-template-columns:1fr 1fr; }
 }
 
 .card{
   background:var(--card);
   border:1px solid var(--border);
-  border-radius:16px;
+  border-radius:18px;
   overflow:hidden;
+  transition:transform .15s ease, border-color .15s ease;
 }
-
-.card-body{
-  padding:14px;
+.card:hover{
+  transform:translateY(-2px);
+  border-color:rgba(88,166,255,.85);
 }
-
-.card p{
-  margin:6px 0;
-}
-
-/* cover image */
 
 .cover{
-  height:160px;
+  height:175px;
   overflow:hidden;
+  border-bottom:1px solid rgba(48,54,61,.6);
 }
-
 .cover img{
   width:100%;
   height:100%;
   object-fit:cover;
+  display:block;
+}
+.card-body{ padding:14px; }
+.card-body b{ font-size:16px; }
+.card-body p{ margin:8px 0 0; color:var(--muted); }
+
+.card-actions{
+  margin-top:12px;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
 }
 
-/* buttons */
-
-.button{
-  display:inline-block;
-  margin-top:10px;
-  padding:6px 12px;
-  border-radius:8px;
+/* ===== Working Experience ===== */
+.block{
+  background:var(--card);
   border:1px solid var(--border);
-  color:var(--text);
-  text-decoration:none;
-  font-size:13px;
+  border-radius:18px;
+  padding:16px;
 }
+.block + .block{ margin-top:14px; }
 
-.button:hover{
-  border-color:var(--accent);
-}
-
-.secondary{
-  color:var(--muted);
-}
-
-/* working experience */
+.secondary{ color:var(--muted); }
 
 .work-flex{
   display:flex;
   gap:14px;
+  align-items:flex-start;
   flex-wrap:wrap;
+  margin-top:10px;
 }
-
 .motor-left{
   width:240px;
-  border-radius:14px;
+  border-radius:16px;
   overflow:hidden;
   border:1px solid var(--border);
 }
-
 .motor-left img{
   width:100%;
   height:160px;
   object-fit:cover;
+  display:block;
 }
+.work-text{ flex:1; min-width:240px; }
 
-/* education */
-
+/* ===== Education ===== */
 .edu{
   display:flex;
   gap:12px;
   align-items:center;
-  margin-bottom:10px;
-}
-
-.logo{
-  width:40px;
-  height:40px;
-  border-radius:10px;
+  background:var(--card);
   border:1px solid var(--border);
+  border-radius:18px;
+  padding:14px;
+  margin-bottom:12px;
+}
+.logo{
+  width:52px;
+  height:52px;
+  border-radius:16px;
+  border:1px solid var(--border);
+  background:rgba(255,255,255,.02);
+  overflow:hidden;
+  flex:0 0 auto;
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:14px;
+}
+.logo img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  padding:10px;
+  display:block;
 }
 
-/* certifications */
-
-.cert-grid{
-  display:grid;
-  gap:16px;
-}
-
+/* ===== Certifications ===== */
 .cert-card{
   background:var(--card);
   border:1px solid var(--border);
-  border-radius:16px;
+  border-radius:18px;
   padding:14px;
 }
-
 .cert-head{
   display:flex;
-  gap:10px;
+  gap:12px;
   align-items:center;
 }
-
 .cert-logo{
-  width:46px;
-  height:46px;
-  border-radius:12px;
+  width:52px;
+  height:52px;
+  border-radius:16px;
   border:1px solid var(--border);
+  background:rgba(255,255,255,.02);
   overflow:hidden;
+  flex:0 0 auto;
 }
-
 .cert-logo img{
   width:100%;
   height:100%;
   object-fit:contain;
+  padding:10px;
+  display:block;
 }
-
-/* skills */
-
-.soft{
+.cert-actions{
+  margin-top:12px;
   display:flex;
-  gap:8px;
+  gap:10px;
   flex-wrap:wrap;
 }
 
+/* ===== Skills ===== */
+.soft{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:14px;
+}
 .chip{
   border:1px solid var(--border);
-  border-radius:20px;
-  padding:5px 10px;
-  font-size:13px;
+  border-radius:999px;
+  padding:7px 12px;
+  font-size:14px;
+  color:rgba(230,237,243,.92); /* FIX: make visible */
+  background:rgba(255,255,255,.02);
+}
+.tools-line{
+  font-size:20px;
+  margin:0;
+}
+.tools-line b{ color:rgba(230,237,243,.95); }
+
+/* ===== Contact ===== */
+.contact-wrap{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.footer{
+  margin:28px 0 10px;
   color:var(--muted);
+  font-size:13px;
 }
-
-/* contact */
-
-.contact a{
-  display:inline-block;
-  margin-right:12px;
-}
-
 </style>
-
 </head>
 
 <body>
 
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">Muhammad Nur Zhifar</div>
+    <div class="nav">
+      <a href="#projects">Projects</a>
+      <a href="#work">Working Experience</a>
+      <a href="#education">Education</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</div>
+
 <div class="container">
 
-<div class="topbar">
-<b>Muhammad Nur Zhifar</b>
-<div class="nav">
-<a href="#projects">Projects</a>
-<a href="#work">Working Experience</a>
-<a href="#education">Education</a>
-<a href="#certifications">Certifications</a>
-<a href="#skills">Skills</a>
-<a href="#contact">Contact</a>
-</div>
-</div>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <h1>Data Analyst</h1>
+      <p>Entry-level Data Analyst focused on practical data analysis, visualization, and business insights.</p>
 
-<div class="hero">
-<img src="./profile.jpg" class="avatar" />
-<div>
-<h1>Data Analyst</h1>
-<p>Entry-level Data Analyst focused on practical data analysis, visualization, and business insights.</p>
-</div>
-</div>
+      <div class="actions">
+        <a class="button" href="http://public.tableau.com/app/profile/muhammad.nur.zhifar/vizzes" target="_blank" rel="noreferrer">Tableau</a>
+        <a class="button secondary" href="https://github.com/jiovarjiovanna" target="_blank" rel="noreferrer">GitHub</a>
+      </div>
+    </div>
 
-<section id="projects" class="section">
-<h2>Projects</h2>
+    <img src="./profile.jpg" alt="Muhammad Nur Zhifar" class="avatar" />
+  </section>
 
-<div class="grid">
+  <!-- PROJECTS -->
+  <section id="projects" class="section">
+    <h2>Projects</h2>
 
-<div class="card">
-<div class="cover">
-<img src="./cover-deep.png">
-</div>
-<div class="card-body">
-<p><b>DEEPP — End-to-End Churn Analysis</b></p>
-<a class="button" href="./DEEPP.pdf" target="_blank">Open PDF</a>
-</div>
-</div>
+    <div class="grid">
 
-<div class="card">
-<div class="cover">
-<img src="./cover-phyton.png">
-</div>
-<div class="card-body">
-<p><b>Customer Segmentation (Python)</b></p>
-<a class="button" href="./Phyton.pdf" target="_blank">Open PDF</a>
-</div>
-</div>
+      <div class="card">
+        <div class="cover"><img src="./cover-deep.png" alt="DEEPP cover"></div>
+        <div class="card-body">
+          <b>DEEPP — End-to-End Churn Analysis</b>
+          <p>Churn analysis project with end-to-end workflow and dashboard output.</p>
+          <div class="card-actions">
+            <a class="button" href="./DEEPP.pdf" target="_blank" rel="noreferrer">Open PDF</a>
+            <a class="button secondary" href="https://public.tableau.com/app/profile/muhammad.nur.zhifar/viz/M4DEEPP/ChurnRatebyUploadUsage" target="_blank" rel="noreferrer">Dashboard</a>
+          </div>
+        </div>
+      </div>
 
-<div class="card">
-<div class="cover">
-<img src="./cover-sql.png">
-</div>
-<div class="card-body">
-<p><b>REVO Grocers — SQL Analysis</b></p>
-<a class="button" href="./SQL.pdf" target="_blank">Open PDF</a>
-</div>
-</div>
+      <div class="card">
+        <div class="cover"><img src="./cover-phyton.png" alt="Python segmentation cover"></div>
+        <div class="card-body">
+          <b>Customer Segmentation (Python)</b>
+          <p>Customer grouping to understand segments and behavior patterns.</p>
+          <div class="card-actions">
+            <a class="button" href="./Phyton.pdf" target="_blank" rel="noreferrer">Open PDF</a>
+          </div>
+        </div>
+      </div>
 
-<div class="card">
-<div class="cover">
-<img src="./cover-excel.png">
-</div>
-<div class="card-body">
-<p><b>TokoBli Campaign Analysis (Excel)</b></p>
-<a class="button" href="./Excel.pdf" target="_blank">Open PDF</a>
-</div>
-</div>
+      <div class="card">
+        <div class="cover"><img src="./cover-sql.png" alt="SQL cover"></div>
+        <div class="card-body">
+          <b>REVO Grocers — Sales Performance (SQL)</b>
+          <p>Business-driven queries to extract insights from sales data.</p>
+          <div class="card-actions">
+            <a class="button" href="./SQL.pdf" target="_blank" rel="noreferrer">Open PDF</a>
+          </div>
+        </div>
+      </div>
 
-</div>
-</section>
+      <div class="card">
+        <div class="cover"><img src="./cover-excel.png" alt="Excel cover"></div>
+        <div class="card-body">
+          <b>TokoBli — Campaign & Product Page (Excel)</b>
+          <p>Campaign evaluation and product page analysis using spreadsheets.</p>
+          <div class="card-actions">
+            <a class="button" href="./Excel.pdf" target="_blank" rel="noreferrer">Open PDF</a>
+          </div>
+        </div>
+      </div>
 
-<section id="work" class="section">
-<h2>Working Experience</h2>
+    </div>
+  </section>
 
-<p><b>Soap Production — Amandas Laundry</b></p>
-<p class="secondary">Feb 2022 — Present</p>
+  <!-- WORK -->
+  <section id="work" class="section">
+    <h2>Working Experience</h2>
 
-<p><b>Custom Motorcycle Builder — SpeedForFun Motorcycle</b></p>
+    <div class="block">
+      <b>Soap Production (Operations) — Amandas Laundry</b>
+      <div class="secondary">Feb 2022 — Present</div>
+      <p style="margin:10px 0 0;">
+        Managed small-scale production workflow and operational tasks with a focus on consistency and quality control.
+      </p>
+    </div>
 
-<div class="work-flex">
+    <div class="block">
+      <b>Custom Motorcycle Builder — SpeedForFun Motorcycle</b>
+      <div class="secondary">Dec 2023 — Present</div>
 
-<div class="motor-left">
-<img src="./motor1.jpg">
-</div>
+      <div class="work-flex">
+        <div class="motor-left">
+          <img src="./motor1.jpg" alt="Custom motorcycle built by Muhammad Nur Zhifar">
+        </div>
+        <div class="work-text">
+          <p style="margin:0;">
+            Designed and built custom motorcycles based on client requirements, handling the process from concept to execution.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<p>Designed and built custom motorcycles based on client requirements.</p>
+  <!-- EDUCATION -->
+  <section id="education" class="section">
+    <h2>Education</h2>
 
-</div>
+    <div class="edu">
+      <div class="logo">
+        <img src="./ut.png" alt="Universitas Terbuka logo">
+      </div>
+      <div>
+        <b>Universitas Terbuka</b><br>
+        <span class="secondary">Bachelor’s Degree — Communication Science</span>
+      </div>
+    </div>
 
-</section>
+    <div class="edu">
+      <div class="logo">
+        <img src="./revou.png" alt="RevoU logo">
+      </div>
+      <div>
+        <b>RevoU</b><br>
+        <span class="secondary">Full Stack Data Analytics</span>
+      </div>
+    </div>
+  </section>
 
-<section id="education" class="section">
-<h2>Education</h2>
+  <!-- CERTIFICATIONS -->
+  <section id="certifications" class="section">
+    <h2>Certifications</h2>
 
-<div class="edu">
-<div class="logo">UT</div>
-<div>
-<b>Universitas Terbuka</b>
-<br>
-<small class="secondary">Communication Science</small>
-</div>
-</div>
+    <div class="cert-card">
+      <div class="cert-head">
+        <div class="cert-logo">
+          <img src="./ef.png" alt="EF logo">
+        </div>
+        <div>
+          <b>EF Bogor Taman Yasmin — English Training</b><br>
+          <span class="secondary">Completed Frontrunner 7 (B1.2.1) & Frontrunner 8 (B1.2.2)</span>
+        </div>
+      </div>
 
-<div class="edu">
-<div class="logo">RV</div>
-<div>
-<b>RevoU</b>
-<br>
-<small class="secondary">Full Stack Data Analytics</small>
-</div>
-</div>
+      <div class="cert-actions">
+        <a class="button" href="./certificatefr7.png" target="_blank" rel="noreferrer">View FR7</a>
+        <a class="button secondary" href="./certificatefr8.png" target="_blank" rel="noreferrer">View FR8</a>
+      </div>
+    </div>
+  </section>
 
-</section>
+  <!-- SKILLS -->
+  <section id="skills" class="section">
+    <h2>Skills</h2>
+    <p class="tools-line"><b>Tools:</b> Excel, Python, SQL, Tableau, Keynote</p>
 
-<section id="certifications" class="section">
+    <div class="soft">
+      <span class="chip">Deep focus (quiet environments)</span>
+      <span class="chip">Independent problem solving</span>
+      <span class="chip">Consistent execution</span>
+      <span class="chip">Independent learning</span>
+    </div>
+  </section>
 
-<h2>Certifications</h2>
+  <!-- CONTACT -->
+  <section id="contact" class="section">
+    <h2>Contact</h2>
+    <div class="contact-wrap">
+      <a class="button" href="mailto:m.nurzhifar@gmail.com">Email</a>
+      <a class="button secondary" href="https://www.linkedin.com/in/muhammad-nur-zhifar-34885a19b/?isSelfProfile=true" target="_blank" rel="noreferrer">LinkedIn</a>
+      <a class="button secondary" href="https://www.facebook.com/muhammad.nurzhifar" target="_blank" rel="noreferrer">Facebook</a>
+      <a class="button secondary" href="http://public.tableau.com/app/profile/muhammad.nur.zhifar/vizzes" target="_blank" rel="noreferrer">Tableau</a>
+      <a class="button secondary" href="https://github.com/jiovarjiovanna" target="_blank" rel="noreferrer">GitHub</a>
+    </div>
+  </section>
 
-<div class="cert-grid">
-
-<div class="cert-card">
-
-<div class="cert-head">
-
-<div class="cert-logo">
-<img src="./ef.png">
-</div>
-
-<div>
-<b>EF Bogor Taman Yasmin</b>
-<br>
-<small class="secondary">
-English Training — Frontrunner 7 & 8 (Intermediate)
-</small>
-</div>
-
-</div>
-
-<a class="button" href="./certificatefr7.png" target="_blank">
-View FR7
-</a>
-
-<a class="button secondary" href="./certificatefr8.png" target="_blank">
-View FR8
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-<section id="skills" class="section">
-
-<h2>Skills</h2>
-
-<p><b>Tools:</b> Excel, Python, SQL, Tableau, Keynote</p>
-
-<div class="soft">
-
-<span class="chip">Deep focus (quiet environments)</span>
-
-<span class="chip">Independent problem solving</span>
-
-<span class="chip">Consistent execution</span>
-
-<span class="chip">Independent learning</span>
-
-</div>
-
-</section>
-
-<section id="contact" class="section contact">
-
-<h2>Contact</h2>
-
-<a class="button" href="mailto:m.nurzhifar@gmail.com">
-Email
-</a>
-
-<a class="button" href="https://www.linkedin.com/in/muhammad-nur-zhifar-34885a19b/" target="_blank">
-LinkedIn
-</a>
-
-<a class="button secondary" href="https://www.facebook.com/muhammad.nurzhifar" target="_blank">
-Facebook
-</a>
-
-</section>
+  <div class="footer">© <span id="y"></span> Muhammad Nur Zhifar</div>
 
 </div>
 
+<script>
+  document.getElementById("y").textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
