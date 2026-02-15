@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Muhammad Nur Zhifar — Data Analyst Portfolio</title>
+  <title>Muhammad Nur Zhifar — Portfolio</title>
   <meta name="description" content="Entry-level Data Analyst portfolio — Excel, Python, Tableau, SQL." />
 
   <style>
@@ -19,9 +19,8 @@
       --shadow: 0 10px 30px rgba(0,0,0,.28);
       --radius:14px;
     }
-
-    *{ box-sizing:border-box; }
-    html{ scroll-behavior:smooth; }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
     body{
       margin:0;
       background:var(--bg);
@@ -29,12 +28,42 @@
       font-family: Arial, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
       line-height:1.6;
     }
-
     .container{
-      max-width: 900px;
+      max-width: 980px;
       margin: 0 auto;
       padding: 44px 18px 70px;
     }
+
+    /* Top nav (simple, like ynandasr style but minimal) */
+    .topbar{
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(13,17,23,.86);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .topbar .inner{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 12px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+    .brand{
+      font-weight: 700;
+      letter-spacing: -.2px;
+    }
+    .menu{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      font-size: 14px;
+    }
+    .menu a{ color:var(--text); opacity:.85; text-decoration:none; }
+    .menu a:hover{ opacity:1; text-decoration:underline; }
 
     /* Hero */
     .hero{
@@ -43,25 +72,16 @@
       align-items:center;
       justify-content:space-between;
       flex-wrap:wrap;
-      margin-bottom: 18px;
+      margin: 18px 0 8px;
       animation: fadeUp .55s ease both;
     }
-
-    .hero-left{
-      min-width: 280px;
-      flex:1;
-    }
-
+    .hero-left{ min-width: 280px; flex:1; }
     h1{
       margin:0 0 8px;
       font-size: 40px;
-      letter-spacing:-0.4px;
+      letter-spacing:-0.5px;
     }
-
-    .subtitle{
-      margin:0;
-      color:var(--muted);
-    }
+    .subtitle{ margin:0; color:var(--muted); }
 
     .chips{
       margin-top:12px;
@@ -79,16 +99,16 @@
       color:var(--muted);
     }
 
-    /* Photo */
+    /* Profile photo (circle) */
     .avatar{
-      width:86px;
-      height:86px;
-      border-radius: 18px;
+      width:132px;
+      height:132px;
+      border-radius: 999px;
       border:1px solid var(--border);
       overflow:hidden;
       box-shadow: var(--shadow);
       flex:0 0 auto;
-      background:rgba(255,255,255,.02);
+      background: rgba(255,255,255,.02);
       animation: fadeUp .55s ease both;
       animation-delay: .06s;
     }
@@ -96,11 +116,12 @@
       width:100%;
       height:100%;
       object-fit: cover;
+      object-position: center 15%; /* geser dikit biar rambut gak kepotong */
       display:block;
       transform: scale(1.02);
     }
 
-    /* Sections / cards */
+    /* Cards */
     .card{
       background:var(--card);
       padding:18px;
@@ -118,24 +139,13 @@
       box-shadow: var(--shadow);
     }
 
-    h2{
-      margin:0 0 10px;
-      font-size:18px;
-      letter-spacing:-0.2px;
-    }
-    h3{
-      margin:0 0 6px;
-      font-size:16px;
-    }
+    h2{ margin:0 0 10px; font-size:18px; letter-spacing:-0.2px; }
+    h3{ margin:0 0 6px; font-size:16px; }
     .muted{ color:var(--muted); }
 
     /* Links + buttons */
-    a{
-      color:var(--link);
-      text-decoration:none;
-    }
+    a{ color:var(--link); text-decoration:none; }
     a:hover{ text-decoration:underline; }
-
     .actions{
       margin-top: 10px;
       display:flex;
@@ -158,14 +168,14 @@
       transform: translateY(-1px);
     }
 
-    /* Project grid */
+    /* Projects grid */
     .grid{
       display:grid;
       grid-template-columns: 1fr;
       gap: 14px;
       margin-top: 10px;
     }
-    @media(min-width: 860px){
+    @media(min-width: 920px){
       .grid{ grid-template-columns: 1fr 1fr; }
     }
 
@@ -182,10 +192,59 @@
       background: rgba(255,255,255,.02);
       min-width: 160px;
     }
-    .kpi b{
+    .kpi b{ display:block; font-size:16px; margin-bottom:2px; }
+
+    /* Education logos */
+    .edu{
+      display:flex;
+      gap:14px;
+      align-items:center;
+      padding:12px 0;
+      border-top: 1px dashed rgba(48,54,61,.6);
+    }
+    .edu:first-child{ border-top:none; padding-top:0; }
+    .logo{
+      width:44px;
+      height:44px;
+      border-radius: 12px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.02);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+      flex:0 0 auto;
+    }
+    .logo img{
+      width:100%;
+      height:100%;
+      object-fit: contain;
+      padding:8px;
       display:block;
-      font-size:16px;
-      margin-bottom:2px;
+    }
+
+    /* Motor image block */
+    .motor{
+      margin-top:10px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow:hidden;
+      background: rgba(255,255,255,.02);
+      transition: transform .18s ease, border-color .18s ease;
+    }
+    .motor:hover{
+      transform: translateY(-2px);
+      border-color: rgba(88,166,255,.85);
+    }
+    .motor img{
+      width:100%;
+      height:280px;
+      object-fit: cover;
+      object-position: center;
+      display:block;
+    }
+    @media(min-width: 920px){
+      .motor img{ height:260px; }
     }
 
     .footer{
@@ -197,28 +256,42 @@
       animation-delay: .25s;
     }
 
-    /* Smooth + subtle entrance */
+    /* Subtle animations */
     @keyframes fadeUp{
       from{ opacity:0; transform: translateY(10px); }
       to{ opacity:1; transform: translateY(0); }
     }
 
-    /* Stagger */
+    /* Stagger (cards after hero) */
     .card:nth-of-type(1){ animation-delay:.05s; }
     .card:nth-of-type(2){ animation-delay:.10s; }
     .card:nth-of-type(3){ animation-delay:.15s; }
     .card:nth-of-type(4){ animation-delay:.20s; }
     .card:nth-of-type(5){ animation-delay:.25s; }
+    .card:nth-of-type(6){ animation-delay:.30s; }
   </style>
 </head>
 
 <body>
+  <div class="topbar">
+    <div class="inner">
+      <div class="brand">Muhammad Nur Zhifar</div>
+      <div class="menu">
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </div>
+
   <main class="container">
 
     <section class="hero">
       <div class="hero-left">
-        <h1>Muhammad Nur Zhifar</h1>
-        <p class="subtitle">Entry-Level Data Analyst • Prefer remote / mostly remote</p>
+        <h1>Entry-Level Data Analyst</h1>
+        <p class="subtitle">Excel • Python • Tableau • SQL | Prefer remote / mostly remote</p>
 
         <div class="chips">
           <span class="chip">Excel (Cleaning)</span>
@@ -226,9 +299,14 @@
           <span class="chip">Tableau (Dashboard)</span>
           <span class="chip">SQL (Basic)</span>
         </div>
+
+        <div class="actions" style="margin-top:14px;">
+          <a class="button" href="http://public.tableau.com/app/profile/muhammad.nur.zhifar/vizzes" target="_blank" rel="noreferrer">Tableau</a>
+          <a class="button" href="https://github.com/jiovarjiovanna" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
       </div>
 
-      <!-- IMPORTANT: make sure you uploaded profile.jpg to the repo root -->
+      <!-- IMPORTANT: profile.jpg must be in repo root -->
       <div class="avatar" title="Profile photo">
         <img src="./profile.jpg" alt="Muhammad Nur Zhifar profile photo" />
       </div>
@@ -237,7 +315,7 @@
     <section class="card" id="about">
       <h2>About</h2>
       <p>
-        I’m an entry-level Data Analyst transitioning from an operational background. I started learning data analysis in October 2025 and built end-to-end portfolio projects using Excel for data cleaning, Python for analysis, Tableau for visualization, and SQL for querying.
+        I’m an entry-level Data Analyst transitioning from an operational background. I started learning data analysis in October 2025 and built portfolio projects using Excel for data cleaning, Python for analysis, Tableau for visualization, and SQL for querying.
       </p>
       <p class="muted" style="margin:10px 0 0;">
         I’m aiming for a data analyst role with a remote-first setup.
@@ -258,18 +336,9 @@
           </p>
 
           <div class="kpi">
-            <div class="box">
-              <b>55.4%</b>
-              <span class="muted">overall churn rate</span>
-            </div>
-            <div class="box">
-              <b>99.8%</b>
-              <span class="muted">churn at 7x over-limit</span>
-            </div>
-            <div class="box">
-              <b>~42%</b>
-              <span class="muted">lower churn w/ bundling</span>
-            </div>
+            <div class="box"><b>55.4%</b><span class="muted">overall churn rate</span></div>
+            <div class="box"><b>99.8%</b><span class="muted">churn at 7x over-limit</span></div>
+            <div class="box"><b>~42%</b><span class="muted">lower churn w/ bundling</span></div>
           </div>
 
           <div class="actions">
@@ -285,29 +354,81 @@
         <div class="card">
           <h3>Customer Segmentation (Python)</h3>
           <p class="muted" style="margin:0;">Tools: Python</p>
-
           <p style="margin:10px 0 0;">
             Customer segmentation to identify customer groups and behavior patterns for clearer targeting and strategy.
           </p>
-
           <p class="muted" style="margin:10px 0 0;">
-            (If you have a report/notebook link, put it here later.)
+            (Add report/notebook link later if needed.)
           </p>
         </div>
 
         <div class="card">
           <h3>SQL Intermediate Analysis</h3>
           <p class="muted" style="margin:0;">Tools: SQL</p>
-
           <p style="margin:10px 0 0;">
             SQL analysis using joins, aggregation, filtering, and business-driven queries to extract insights.
           </p>
-
           <p class="muted" style="margin:10px 0 0;">
-            (If you have a slide/report link, put it here later.)
+            (Add slide/report link later if needed.)
           </p>
         </div>
 
+      </div>
+    </section>
+
+    <section class="card" id="experience">
+      <h2>Experience</h2>
+
+      <div class="edu">
+        <div style="flex:1;">
+          <h3 style="margin:0;">Soap Production (Operations)</h3>
+          <p class="muted" style="margin:4px 0 0;">Feb 2022 — Present</p>
+          <p style="margin:10px 0 0;">
+            Managed small-scale production workflow and operational tasks with a focus on consistency and quality control.
+          </p>
+        </div>
+      </div>
+
+      <div class="edu">
+        <div style="flex:1;">
+          <h3 style="margin:0;">Custom Motorcycle Builder (Independent)</h3>
+          <p class="muted" style="margin:4px 0 0;">Dec 2023 — Present</p>
+          <p style="margin:10px 0 0;">
+            Designed and built custom motorcycles based on client requirements, handling the full process from concept to execution.
+          </p>
+
+          <!-- IMPORTANT: motor1.jpg must be in repo root -->
+          <div class="motor" title="One of my custom motorcycle works">
+            <img src="./motor1.jpg" alt="Custom motorcycle design by Muhammad Nur Zhifar" />
+          </div>
+          <p class="muted" style="margin:10px 0 0;">
+            (If you want, we can add 2–3 photos as a small gallery later.)
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" id="education">
+      <h2>Education & Training</h2>
+
+      <div class="edu">
+        <div class="logo" title="Universitas Terbuka">
+          <img src="./ut.png" alt="Universitas Terbuka logo" />
+        </div>
+        <div style="flex:1;">
+          <h3 style="margin:0;">Universitas Terbuka</h3>
+          <p class="muted" style="margin:4px 0 0;">Bachelor’s Degree — Communication Science</p>
+        </div>
+      </div>
+
+      <div class="edu">
+        <div class="logo" title="RevoU">
+          <img src="./revou.png" alt="RevoU logo" />
+        </div>
+        <div style="flex:1;">
+          <h3 style="margin:0;">RevoU</h3>
+          <p class="muted" style="margin:4px 0 0;">Data Analytics learning (ongoing)</p>
+        </div>
       </div>
     </section>
 
@@ -330,7 +451,12 @@
         <a class="button" href="https://github.com/jiovarjiovanna" target="_blank" rel="noreferrer">GitHub</a>
         <a class="button" href="http://public.tableau.com/app/profile/muhammad.nur.zhifar/vizzes" target="_blank" rel="noreferrer">Tableau</a>
         <a class="button" href="https://www.linkedin.com/in/muhammad-nur-zhifar-34885a19b/?isSelfProfile=true" target="_blank" rel="noreferrer">LinkedIn</a>
+        <!-- Facebook (name-based link, you can replace with exact profile URL later) -->
+        <a class="button" href="https://www.facebook.com/search/top?q=M%20Nur%20Zhafar" target="_blank" rel="noreferrer">Facebook</a>
       </div>
+      <p class="muted" style="margin:10px 0 0;">
+        Facebook: M Nur Zhafar
+      </p>
     </section>
 
     <div class="footer">© <span id="y"></span> Muhammad Nur Zhifar</div>
