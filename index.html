@@ -34,7 +34,7 @@
       padding: 44px 18px 70px;
     }
 
-    /* Top nav (simple, like ynandasr style but minimal) */
+    /* Top nav */
     .topbar{
       position: sticky;
       top: 0;
@@ -116,7 +116,7 @@
       width:100%;
       height:100%;
       object-fit: cover;
-      object-position: center 15%; /* geser dikit biar rambut gak kepotong */
+      object-position: center 15%;
       display:block;
       transform: scale(1.02);
     }
@@ -194,15 +194,15 @@
     }
     .kpi b{ display:block; font-size:16px; margin-bottom:2px; }
 
-    /* Education logos */
-    .edu{
+    /* Education / Experience rows */
+    .row{
       display:flex;
       gap:14px;
       align-items:center;
       padding:12px 0;
       border-top: 1px dashed rgba(48,54,61,.6);
     }
-    .edu:first-child{ border-top:none; padding-top:0; }
+    .row:first-child{ border-top:none; padding-top:0; }
     .logo{
       width:44px;
       height:44px;
@@ -223,7 +223,7 @@
       display:block;
     }
 
-    /* Motor image block */
+    /* Motor image (show full) */
     .motor{
       margin-top:10px;
       border: 1px solid var(--border);
@@ -238,13 +238,14 @@
     }
     .motor img{
       width:100%;
-      height:280px;
-      object-fit: cover;
-      object-position: center;
+      height:240px;
+      object-fit: contain;   /* IMPORTANT: show full motor */
+      background: #0b0f14;   /* subtle backdrop */
       display:block;
+      padding: 8px;
     }
     @media(min-width: 920px){
-      .motor img{ height:260px; }
+      .motor img{ height:220px; }
     }
 
     .footer{
@@ -262,7 +263,7 @@
       to{ opacity:1; transform: translateY(0); }
     }
 
-    /* Stagger (cards after hero) */
+    /* Stagger */
     .card:nth-of-type(1){ animation-delay:.05s; }
     .card:nth-of-type(2){ animation-delay:.10s; }
     .card:nth-of-type(3){ animation-delay:.15s; }
@@ -306,7 +307,6 @@
         </div>
       </div>
 
-      <!-- IMPORTANT: profile.jpg must be in repo root -->
       <div class="avatar" title="Profile photo">
         <img src="./profile.jpg" alt="Muhammad Nur Zhifar profile photo" />
       </div>
@@ -328,7 +328,7 @@
       <div class="grid">
 
         <div class="card">
-          <h3>Internet Service Churn Analysis (DEEPP)</h3>
+          <h3>DEEPP — Data End-to-End Portfolio Project (Churn Analysis)</h3>
           <p class="muted" style="margin:0;">Tools: Python, Tableau</p>
 
           <p style="margin:10px 0 0;">
@@ -342,35 +342,35 @@
           </div>
 
           <div class="actions">
-            <a class="button" href="https://public.tableau.com/app/profile/muhammad.nur.zhifar/viz/M4DEEPP/ChurnRatebyUploadUsage" target="_blank" rel="noreferrer">
-              View Dashboard
-            </a>
-            <a class="button" href="http://public.tableau.com/app/profile/muhammad.nur.zhifar/vizzes" target="_blank" rel="noreferrer">
-              Tableau Profile
-            </a>
+            <a class="button" href="https://public.tableau.com/app/profile/muhammad.nur.zhifar/viz/M4DEEPP/ChurnRatebyUploadUsage" target="_blank" rel="noreferrer">View Dashboard</a>
+            <a class="button" href="https://drive.google.com/file/d/1hqwVlKs21fptWNd29YK1wZNKb4LHBMct/view?usp=sharing" target="_blank" rel="noreferrer">View Report (Drive)</a>
           </div>
         </div>
 
         <div class="card">
-          <h3>Customer Segmentation (Python)</h3>
+          <h3>Customer Segmentation (Python — Google Colab)</h3>
           <p class="muted" style="margin:0;">Tools: Python</p>
+
           <p style="margin:10px 0 0;">
             Customer segmentation to identify customer groups and behavior patterns for clearer targeting and strategy.
           </p>
-          <p class="muted" style="margin:10px 0 0;">
-            (Add report/notebook link later if needed.)
-          </p>
+
+          <div class="actions">
+            <a class="button" href="https://drive.google.com/file/d/12B4P0Q2WJXCmz0xhHhTiAKyuM6YAlGvA/view?usp=sharing" target="_blank" rel="noreferrer">Open Colab File (Drive)</a>
+          </div>
         </div>
 
         <div class="card">
-          <h3>SQL Intermediate Analysis</h3>
+          <h3>REVO GROCERS SALES PERFORMANCE ANALYSIS (SQL)</h3>
           <p class="muted" style="margin:0;">Tools: SQL</p>
+
           <p style="margin:10px 0 0;">
             SQL analysis using joins, aggregation, filtering, and business-driven queries to extract insights.
           </p>
-          <p class="muted" style="margin:10px 0 0;">
-            (Add slide/report link later if needed.)
-          </p>
+
+          <div class="actions">
+            <a class="button" href="https://drive.google.com/file/d/1jg8IMYeDzDEYef7l2ahH1cHRh47lBRDz/view?usp=sharing" target="_blank" rel="noreferrer">View Report (Drive)</a>
+          </div>
         </div>
 
       </div>
@@ -379,9 +379,9 @@
     <section class="card" id="experience">
       <h2>Experience</h2>
 
-      <div class="edu">
+      <div class="row">
         <div style="flex:1;">
-          <h3 style="margin:0;">Soap Production (Operations)</h3>
+          <h3 style="margin:0;">Soap Production (Operations) — Amandas Laundry</h3>
           <p class="muted" style="margin:4px 0 0;">Feb 2022 — Present</p>
           <p style="margin:10px 0 0;">
             Managed small-scale production workflow and operational tasks with a focus on consistency and quality control.
@@ -389,21 +389,17 @@
         </div>
       </div>
 
-      <div class="edu">
+      <div class="row">
         <div style="flex:1;">
-          <h3 style="margin:0;">Custom Motorcycle Builder (Independent)</h3>
+          <h3 style="margin:0;">Custom Motorcycle Builder — SpeedForFun Motorcycle</h3>
           <p class="muted" style="margin:4px 0 0;">Dec 2023 — Present</p>
           <p style="margin:10px 0 0;">
             Designed and built custom motorcycles based on client requirements, handling the full process from concept to execution.
           </p>
 
-          <!-- IMPORTANT: motor1.jpg must be in repo root -->
-          <div class="motor" title="One of my custom motorcycle works">
+          <div class="motor" title="Custom motorcycle work">
             <img src="./motor1.jpg" alt="Custom motorcycle design by Muhammad Nur Zhifar" />
           </div>
-          <p class="muted" style="margin:10px 0 0;">
-            (If you want, we can add 2–3 photos as a small gallery later.)
-          </p>
         </div>
       </div>
     </section>
@@ -411,7 +407,7 @@
     <section class="card" id="education">
       <h2>Education & Training</h2>
 
-      <div class="edu">
+      <div class="row">
         <div class="logo" title="Universitas Terbuka">
           <img src="./ut.png" alt="Universitas Terbuka logo" />
         </div>
@@ -421,13 +417,13 @@
         </div>
       </div>
 
-      <div class="edu">
+      <div class="row">
         <div class="logo" title="RevoU">
           <img src="./revou.png" alt="RevoU logo" />
         </div>
         <div style="flex:1;">
           <h3 style="margin:0;">RevoU</h3>
-          <p class="muted" style="margin:4px 0 0;">Data Analytics learning (ongoing)</p>
+          <p class="muted" style="margin:4px 0 0;">Full Stack Data Analytics (ongoing)</p>
         </div>
       </div>
     </section>
@@ -444,19 +440,13 @@
 
     <section class="card" id="contact">
       <h2>Contact</h2>
-      <p style="margin:0 0 10px;">
-        Email: <a href="mailto:m.nurzhifar@gmail.com">m.nurzhifar@gmail.com</a>
-      </p>
       <div class="actions">
+        <a class="button" href="mailto:m.nurzhifar@gmail.com">Email</a>
         <a class="button" href="https://github.com/jiovarjiovanna" target="_blank" rel="noreferrer">GitHub</a>
         <a class="button" href="http://public.tableau.com/app/profile/muhammad.nur.zhifar/vizzes" target="_blank" rel="noreferrer">Tableau</a>
         <a class="button" href="https://www.linkedin.com/in/muhammad-nur-zhifar-34885a19b/?isSelfProfile=true" target="_blank" rel="noreferrer">LinkedIn</a>
-        <!-- Facebook (name-based link, you can replace with exact profile URL later) -->
-        <a class="button" href="https://www.facebook.com/search/top?q=M%20Nur%20Zhafar" target="_blank" rel="noreferrer">Facebook</a>
+        <a class="button" href="https://www.facebook.com/muhammad.nurzhifar" target="_blank" rel="noreferrer">Facebook</a>
       </div>
-      <p class="muted" style="margin:10px 0 0;">
-        Facebook: M Nur Zhafar
-      </p>
     </section>
 
     <div class="footer">© <span id="y"></span> Muhammad Nur Zhifar</div>
