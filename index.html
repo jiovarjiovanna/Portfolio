@@ -17,7 +17,7 @@
       --btn:#21262d;
       --btnHover:#30363d;
       --shadow: 0 10px 30px rgba(0,0,0,.28);
-      --radius:14px;
+      --radius:16px;
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
@@ -26,15 +26,15 @@
       background:var(--bg);
       color:var(--text);
       font-family: Arial, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-      line-height:1.6;
+      line-height:1.65;
     }
     .container{
-      max-width: 980px;
+      max-width: 1040px;
       margin: 0 auto;
-      padding: 44px 18px 70px;
+      padding: 40px 18px 70px;
     }
 
-    /* Top nav */
+    /* Topbar */
     .topbar{
       position: sticky;
       top: 0;
@@ -44,7 +44,7 @@
       border-bottom: 1px solid var(--border);
     }
     .topbar .inner{
-      max-width: 980px;
+      max-width: 1040px;
       margin: 0 auto;
       padding: 12px 18px;
       display:flex;
@@ -52,15 +52,12 @@
       justify-content:space-between;
       gap:12px;
     }
-    .brand{
-      font-weight: 700;
-      letter-spacing: -.2px;
-    }
+    .brand{ font-weight:700; letter-spacing:-.2px; }
     .menu{
       display:flex;
       gap:12px;
       flex-wrap:wrap;
-      font-size: 14px;
+      font-size:14px;
     }
     .menu a{ color:var(--text); opacity:.85; text-decoration:none; }
     .menu a:hover{ opacity:1; text-decoration:underline; }
@@ -72,15 +69,11 @@
       align-items:center;
       justify-content:space-between;
       flex-wrap:wrap;
-      margin: 18px 0 8px;
+      margin: 16px 0 8px;
       animation: fadeUp .55s ease both;
     }
     .hero-left{ min-width: 280px; flex:1; }
-    h1{
-      margin:0 0 8px;
-      font-size: 40px;
-      letter-spacing:-0.5px;
-    }
+    h1{ margin:0 0 8px; font-size: 40px; letter-spacing:-.6px; }
     .subtitle{ margin:0; color:var(--muted); }
 
     .chips{
@@ -99,7 +92,7 @@
       color:var(--muted);
     }
 
-    /* Profile photo (circle) */
+    /* Profile */
     .avatar{
       width:132px;
       height:132px;
@@ -122,7 +115,7 @@
     }
 
     /* Cards */
-    .card{
+    .section{
       background:var(--card);
       padding:18px;
       margin-top:14px;
@@ -133,7 +126,7 @@
       opacity:0;
       animation: fadeUp .55s ease both;
     }
-    .card:hover{
+    .section:hover{
       transform: translateY(-3px);
       border-color: rgba(88,166,255,.85);
       box-shadow: var(--shadow);
@@ -143,9 +136,9 @@
     h3{ margin:0 0 6px; font-size:16px; }
     .muted{ color:var(--muted); }
 
-    /* Links + buttons */
     a{ color:var(--link); text-decoration:none; }
     a:hover{ text-decoration:underline; }
+
     .actions{
       margin-top: 10px;
       display:flex;
@@ -167,6 +160,15 @@
       background: var(--btnHover);
       transform: translateY(-1px);
     }
+    .button.secondary{
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+      opacity:.95;
+    }
+    .button.secondary:hover{
+      background: rgba(255,255,255,.03);
+    }
 
     /* Projects grid */
     .grid{
@@ -175,26 +177,50 @@
       gap: 14px;
       margin-top: 10px;
     }
-    @media(min-width: 920px){
+    @media(min-width: 980px){
       .grid{ grid-template-columns: 1fr 1fr; }
     }
 
-    .kpi{
+    /* Project card */
+    .p-card{
+      background: rgba(255,255,255,.02);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow:hidden;
+      transition: transform .18s ease, border-color .18s ease;
+    }
+    .p-card:hover{
+      transform: translateY(-2px);
+      border-color: rgba(88,166,255,.85);
+    }
+    .p-cover{
+      height: 150px;
+      background: linear-gradient(135deg, rgba(88,166,255,.15), rgba(255,255,255,.03));
+      border-bottom: 1px solid rgba(48,54,61,.6);
       display:flex;
-      gap:10px;
+      align-items:flex-end;
+      padding: 12px 14px;
+    }
+    .p-cover b{ font-size: 14px; color: rgba(230,237,243,.95); }
+    .p-body{ padding: 14px; }
+    .tags{
+      display:flex;
+      gap:8px;
       flex-wrap:wrap;
       margin-top:10px;
     }
-    .kpi .box{
-      border:1px solid var(--border);
-      border-radius: 12px;
-      padding: 10px 12px;
+    .tag{
+      display:inline-block;
+      font-size:12px;
+      padding:4px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(48,54,61,.8);
+      color: var(--muted);
       background: rgba(255,255,255,.02);
-      min-width: 160px;
     }
-    .kpi b{ display:block; font-size:16px; margin-bottom:2px; }
+    .p-actions{ margin-top: 12px; display:flex; gap:10px; flex-wrap:wrap; }
 
-    /* Education / Experience rows */
+    /* Rows (education/experience) */
     .row{
       display:flex;
       gap:14px;
@@ -203,6 +229,7 @@
       border-top: 1px dashed rgba(48,54,61,.6);
     }
     .row:first-child{ border-top:none; padding-top:0; }
+
     .logo{
       width:44px;
       height:44px;
@@ -223,7 +250,7 @@
       display:block;
     }
 
-    /* Motor image (show full) */
+    /* Motor image (clean frame, no black “exterior”) */
     .motor{
       margin-top:10px;
       border: 1px solid var(--border);
@@ -238,14 +265,19 @@
     }
     .motor img{
       width:100%;
-      height:240px;
-      object-fit: contain;   /* IMPORTANT: show full motor */
-      background: #0b0f14;   /* subtle backdrop */
+      height: 220px;
+      object-fit: contain;     /* show full motor */
+      background: transparent; /* no big black area */
       display:block;
       padding: 8px;
     }
-    @media(min-width: 920px){
-      .motor img{ height:220px; }
+
+    /* Soft skills chips */
+    .soft{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      margin-top:10px;
     }
 
     .footer{
@@ -257,19 +289,19 @@
       animation-delay: .25s;
     }
 
-    /* Subtle animations */
     @keyframes fadeUp{
       from{ opacity:0; transform: translateY(10px); }
       to{ opacity:1; transform: translateY(0); }
     }
 
     /* Stagger */
-    .card:nth-of-type(1){ animation-delay:.05s; }
-    .card:nth-of-type(2){ animation-delay:.10s; }
-    .card:nth-of-type(3){ animation-delay:.15s; }
-    .card:nth-of-type(4){ animation-delay:.20s; }
-    .card:nth-of-type(5){ animation-delay:.25s; }
-    .card:nth-of-type(6){ animation-delay:.30s; }
+    .section:nth-of-type(1){ animation-delay:.05s; }
+    .section:nth-of-type(2){ animation-delay:.10s; }
+    .section:nth-of-type(3){ animation-delay:.15s; }
+    .section:nth-of-type(4){ animation-delay:.20s; }
+    .section:nth-of-type(5){ animation-delay:.25s; }
+    .section:nth-of-type(6){ animation-delay:.30s; }
+    .section:nth-of-type(7){ animation-delay:.35s; }
   </style>
 </head>
 
@@ -279,7 +311,7 @@
       <div class="brand">Muhammad Nur Zhifar</div>
       <div class="menu">
         <a href="#projects">Projects</a>
-        <a href="#experience">Experience</a>
+        <a href="#work">Working Experience</a>
         <a href="#education">Education</a>
         <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
@@ -296,8 +328,8 @@
 
         <div class="chips">
           <span class="chip">Excel (Cleaning)</span>
-          <span class="chip">Python (EDA)</span>
-          <span class="chip">Tableau (Dashboard)</span>
+          <span class="chip">Python (Large Data)</span>
+          <span class="chip">Tableau (DataViz)</span>
           <span class="chip">SQL (Basic)</span>
         </div>
 
@@ -312,7 +344,7 @@
       </div>
     </section>
 
-    <section class="card" id="about">
+    <section class="section" id="about">
       <h2>About</h2>
       <p>
         I’m an entry-level Data Analyst transitioning from an operational background. I started learning data analysis in October 2025 and built portfolio projects using Excel for data cleaning, Python for analysis, Tableau for visualization, and SQL for querying.
@@ -322,62 +354,93 @@
       </p>
     </section>
 
-    <section class="card" id="projects">
+    <section class="section" id="projects">
       <h2>Projects</h2>
 
       <div class="grid">
 
-        <div class="card">
-          <h3>DEEPP — Data End-to-End Portfolio Project (Churn Analysis)</h3>
-          <p class="muted" style="margin:0;">Tools: Python, Tableau</p>
-
-          <p style="margin:10px 0 0;">
-            End-to-end churn analysis to identify key retention drivers and support a clear action plan for reducing churn.
-          </p>
-
-          <div class="kpi">
-            <div class="box"><b>55.4%</b><span class="muted">overall churn rate</span></div>
-            <div class="box"><b>99.8%</b><span class="muted">churn at 7x over-limit</span></div>
-            <div class="box"><b>~42%</b><span class="muted">lower churn w/ bundling</span></div>
-          </div>
-
-          <div class="actions">
-            <a class="button" href="https://public.tableau.com/app/profile/muhammad.nur.zhifar/viz/M4DEEPP/ChurnRatebyUploadUsage" target="_blank" rel="noreferrer">View Dashboard</a>
-            <a class="button" href="https://drive.google.com/file/d/1hqwVlKs21fptWNd29YK1wZNKb4LHBMct/view?usp=sharing" target="_blank" rel="noreferrer">View Report (Drive)</a>
-          </div>
-        </div>
-
-        <div class="card">
-          <h3>Customer Segmentation (Python — Google Colab)</h3>
-          <p class="muted" style="margin:0;">Tools: Python</p>
-
-          <p style="margin:10px 0 0;">
-            Customer segmentation to identify customer groups and behavior patterns for clearer targeting and strategy.
-          </p>
-
-          <div class="actions">
-            <a class="button" href="https://drive.google.com/file/d/12B4P0Q2WJXCmz0xhHhTiAKyuM6YAlGvA/view?usp=sharing" target="_blank" rel="noreferrer">Open Colab File (Drive)</a>
+        <!-- 1 -->
+        <div class="p-card">
+          <div class="p-cover"><b>DEEPP — End-to-End Churn Analysis</b></div>
+          <div class="p-body">
+            <div class="tags">
+              <span class="tag">Python</span>
+              <span class="tag">Tableau</span>
+              <span class="tag">EDA</span>
+            </div>
+            <p class="muted" style="margin:10px 0 0;">
+              Churn analysis to identify key retention drivers and actions to reduce churn.
+            </p>
+            <div class="p-actions">
+              <a class="button" href="./deepp.html">View Details</a>
+              <a class="button secondary" href="./DEEPP.pdf" target="_blank" rel="noreferrer">Open PDF</a>
+              <a class="button secondary" href="https://public.tableau.com/app/profile/muhammad.nur.zhifar/viz/M4DEEPP/ChurnRatebyUploadUsage" target="_blank" rel="noreferrer">Dashboard</a>
+            </div>
           </div>
         </div>
 
-        <div class="card">
-          <h3>REVO GROCERS SALES PERFORMANCE ANALYSIS (SQL)</h3>
-          <p class="muted" style="margin:0;">Tools: SQL</p>
+        <!-- 2 -->
+        <div class="p-card">
+          <div class="p-cover"><b>Customer Segmentation (Python)</b></div>
+          <div class="p-body">
+            <div class="tags">
+              <span class="tag">Python</span>
+              <span class="tag">Clustering</span>
+              <span class="tag">EDA</span>
+            </div>
+            <p class="muted" style="margin:10px 0 0;">
+              Customer grouping to understand segments and behavior patterns.
+            </p>
+            <div class="p-actions">
+              <a class="button" href="./python-segmentation.html">View Details</a>
+              <a class="button secondary" href="./Phyton.pdf" target="_blank" rel="noreferrer">Open PDF</a>
+            </div>
+          </div>
+        </div>
 
-          <p style="margin:10px 0 0;">
-            SQL analysis using joins, aggregation, filtering, and business-driven queries to extract insights.
-          </p>
+        <!-- 3 -->
+        <div class="p-card">
+          <div class="p-cover"><b>REVO Grocers — Sales Performance (SQL)</b></div>
+          <div class="p-body">
+            <div class="tags">
+              <span class="tag">SQL</span>
+              <span class="tag">Joins</span>
+              <span class="tag">Aggregation</span>
+            </div>
+            <p class="muted" style="margin:10px 0 0;">
+              Business-driven queries to extract insights from sales data.
+            </p>
+            <div class="p-actions">
+              <a class="button" href="./sql-revogrocers.html">View Details</a>
+              <a class="button secondary" href="./SQL.pdf" target="_blank" rel="noreferrer">Open PDF</a>
+            </div>
+          </div>
+        </div>
 
-          <div class="actions">
-            <a class="button" href="https://drive.google.com/file/d/1jg8IMYeDzDEYef7l2ahH1cHRh47lBRDz/view?usp=sharing" target="_blank" rel="noreferrer">View Report (Drive)</a>
+        <!-- 4 -->
+        <div class="p-card">
+          <div class="p-cover"><b>TokoBli — Campaign & Product Page (Excel)</b></div>
+          <div class="p-body">
+            <div class="tags">
+              <span class="tag">Excel</span>
+              <span class="tag">Spreadsheets</span>
+              <span class="tag">Analysis</span>
+            </div>
+            <p class="muted" style="margin:10px 0 0;">
+              Campaign evaluation and product page analysis using spreadsheets.
+            </p>
+            <div class="p-actions">
+              <a class="button" href="./excel-tokobli.html">View Details</a>
+              <a class="button secondary" href="./Excel.pdf" target="_blank" rel="noreferrer">Open PDF</a>
+            </div>
           </div>
         </div>
 
       </div>
     </section>
 
-    <section class="card" id="experience">
-      <h2>Experience</h2>
+    <section class="section" id="work">
+      <h2>Working Experience</h2>
 
       <div class="row">
         <div style="flex:1;">
@@ -397,14 +460,14 @@
             Designed and built custom motorcycles based on client requirements, handling the full process from concept to execution.
           </p>
 
-          <div class="motor" title="Custom motorcycle work">
-            <img src="./motor1.jpg" alt="Custom motorcycle design by Muhammad Nur Zhifar" />
+          <div class="motor">
+            <img src="./motor1.jpg" alt="Custom motorcycle built by Muhammad Nur Zhifar" />
           </div>
         </div>
       </div>
     </section>
 
-    <section class="card" id="education">
+    <section class="section" id="education">
       <h2>Education & Training</h2>
 
       <div class="row">
@@ -422,30 +485,40 @@
           <img src="./revou.png" alt="RevoU logo" />
         </div>
         <div style="flex:1;">
-          <h3 style="margin:0;">RevoU</h3>
-          <p class="muted" style="margin:4px 0 0;">Full Stack Data Analytics (ongoing)</p>
+          <h3 style="margin:0;">RevoU — Full Stack Data Analytics & RevoU NEXT</h3>
+          <p class="muted" style="margin:4px 0 0;">Ongoing</p>
         </div>
       </div>
     </section>
 
-    <section class="card" id="skills">
+    <section class="section" id="skills">
       <h2>Skills</h2>
       <p>
         <b>Excel</b> — data cleaning, transformation, analysis<br>
-        <b>Python</b> — data cleaning, EDA, handling large datasets, basic modeling<br>
+        <b>Python</b> — data cleaning, EDA, handling larger datasets<br>
         <b>Tableau</b> — dashboards & data visualization<br>
-        <b>SQL</b> — querying, joins, aggregation (basic)
+        <b>SQL</b> — querying, joins, aggregation (basic)<br>
+        <b>Presentation</b> — Apple Keynote (slide deck creation)
       </p>
+
+      <h2 style="margin-top:14px;">Soft Skills</h2>
+      <div class="soft">
+        <span class="chip">Calm under pressure</span>
+        <span class="chip">Detail-focused</span>
+        <span class="chip">Practical problem solving</span>
+        <span class="chip">Consistent execution</span>
+        <span class="chip">Independent learning</span>
+      </div>
     </section>
 
-    <section class="card" id="contact">
+    <section class="section" id="contact">
       <h2>Contact</h2>
       <div class="actions">
         <a class="button" href="mailto:m.nurzhifar@gmail.com">Email</a>
-        <a class="button" href="https://github.com/jiovarjiovanna" target="_blank" rel="noreferrer">GitHub</a>
-        <a class="button" href="http://public.tableau.com/app/profile/muhammad.nur.zhifar/vizzes" target="_blank" rel="noreferrer">Tableau</a>
-        <a class="button" href="https://www.linkedin.com/in/muhammad-nur-zhifar-34885a19b/?isSelfProfile=true" target="_blank" rel="noreferrer">LinkedIn</a>
-        <a class="button" href="https://www.facebook.com/muhammad.nurzhifar" target="_blank" rel="noreferrer">Facebook</a>
+        <a class="button secondary" href="https://www.linkedin.com/in/muhammad-nur-zhifar-34885a19b/?isSelfProfile=true" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a class="button secondary" href="http://public.tableau.com/app/profile/muhammad.nur.zhifar/vizzes" target="_blank" rel="noreferrer">Tableau</a>
+        <a class="button secondary" href="https://github.com/jiovarjiovanna" target="_blank" rel="noreferrer">GitHub</a>
+        <a class="button secondary" href="https://www.facebook.com/muhammad.nurzhifar" target="_blank" rel="noreferrer">Facebook</a>
       </div>
     </section>
 
