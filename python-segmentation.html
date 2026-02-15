@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Customer Segmentation | Muhammad Nur Zhifar</title>
+  <style>
+    :root{--bg:#0d1117;--text:#e6edf3;--muted:#9aa4b2;--card:#161b22;--border:#30363d;--link:#58a6ff;--btn:#21262d;--btnHover:#30363d;--shadow:0 10px 30px rgba(0,0,0,.28);--radius:16px;}
+    *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.65;}
+    .container{max-width:960px;margin:0 auto;padding:28px 18px 70px;}
+    a{color:var(--link);text-decoration:none} a:hover{text-decoration:underline}
+    .top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px;}
+    .button{display:inline-block;padding:9px 14px;background:var(--btn);border-radius:10px;border:1px solid var(--border);transition:background .18s,transform .18s;text-decoration:none!important;color:var(--text);font-size:14px;}
+    .button:hover{background:var(--btnHover);transform:translateY(-1px);}
+    .button.secondary{background:transparent;}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin-top:12px;animation:fadeUp .45s ease both;}
+    .card:hover{box-shadow:var(--shadow);border-color:rgba(88,166,255,.85);}
+    h1{margin:0 0 6px;font-size:28px;letter-spacing:-.3px;}
+    h2{margin:0 0 10px;font-size:18px;}
+    .muted{color:var(--muted);}
+    .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;}
+    .tag{display:inline-block;font-size:12px;padding:4px 8px;border-radius:999px;border:1px solid rgba(48,54,61,.8);color:var(--muted);background:rgba(255,255,255,.02);}
+    ul{margin:8px 0 0 18px;}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+  </style>
+</head>
+<body>
+  <main class="container">
+    <div class="top">
+      <a class="button secondary" href="./index.html">← Back to Home</a>
+      <a class="button" href="./Phyton.pdf" target="_blank" rel="noreferrer">Open PDF</a>
+    </div>
+
+    <div class="card">
+      <h1>Customer Segmentation (Python)</h1>
+      <p class="muted" style="margin:0;">
+        Segmentation to understand different customer groups and their behavior patterns.
+      </p>
+      <div class="tags">
+        <span class="tag">Python</span>
+        <span class="tag">Clustering</span>
+        <span class="tag">EDA</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Objective</h2>
+      <p style="margin:0;">
+        Group customers into meaningful segments so strategies can be targeted and measurable.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Process</h2>
+      <ul>
+        <li>Cleaned and prepared the dataset for modeling.</li>
+        <li>Explored customer behavior patterns through EDA.</li>
+        <li>Built segmentation and interpreted cluster characteristics.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Output</h2>
+      <ul>
+        <li>Segment profiles (what defines each segment).</li>
+        <li>Practical notes on how to use the segments for targeting.</li>
+      </ul>
+    </div>
+  </main>
+</body>
+</html>
