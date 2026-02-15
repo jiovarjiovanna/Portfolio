@@ -1,96 +1,343 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-<title>Muhammad Nur Zhifar - Data Analyst Portfolio</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Muhammad Nur Zhifar — Data Analyst Portfolio</title>
+  <meta name="description" content="Entry-level Data Analyst portfolio — Excel, Python, Tableau, SQL." />
 
-<style>
-body {
-  background-color: #0d1117;
-  color: #e6edf3;
-  font-family: Arial;
-  padding: 40px;
-}
+  <style>
+    :root{
+      --bg:#0d1117;
+      --text:#e6edf3;
+      --muted:#9aa4b2;
+      --card:#161b22;
+      --border:#30363d;
+      --link:#58a6ff;
+      --btn:#21262d;
+      --btnHover:#30363d;
+      --shadow: 0 10px 30px rgba(0,0,0,.28);
+      --radius:14px;
+    }
 
-.container {
-  max-width: 800px;
-  margin: auto;
-}
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      font-family: Arial, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      line-height:1.6;
+    }
 
-.card {
-  background: #161b22;
-  padding: 20px;
-  margin-top: 20px;
-  border-radius: 10px;
-}
+    .container{
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 44px 18px 70px;
+    }
 
-a {
-  color: #58a6ff;
-  text-decoration: none;
-}
-</style>
+    /* Hero */
+    .hero{
+      display:flex;
+      gap:18px;
+      align-items:center;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      margin-bottom: 18px;
+      animation: fadeUp .55s ease both;
+    }
 
+    .hero-left{
+      min-width: 280px;
+      flex:1;
+    }
+
+    h1{
+      margin:0 0 8px;
+      font-size: 40px;
+      letter-spacing:-0.4px;
+    }
+
+    .subtitle{
+      margin:0;
+      color:var(--muted);
+    }
+
+    .chips{
+      margin-top:12px;
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+    .chip{
+      display:inline-block;
+      padding:6px 10px;
+      border:1px solid var(--border);
+      border-radius:999px;
+      background:rgba(255,255,255,0.02);
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    /* Photo */
+    .avatar{
+      width:86px;
+      height:86px;
+      border-radius: 18px;
+      border:1px solid var(--border);
+      overflow:hidden;
+      box-shadow: var(--shadow);
+      flex:0 0 auto;
+      background:rgba(255,255,255,.02);
+      animation: fadeUp .55s ease both;
+      animation-delay: .06s;
+    }
+    .avatar img{
+      width:100%;
+      height:100%;
+      object-fit: cover;
+      display:block;
+      transform: scale(1.02);
+    }
+
+    /* Sections / cards */
+    .card{
+      background:var(--card);
+      padding:18px;
+      margin-top:14px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      transform: translateY(0);
+      transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+      opacity:0;
+      animation: fadeUp .55s ease both;
+    }
+    .card:hover{
+      transform: translateY(-3px);
+      border-color: rgba(88,166,255,.85);
+      box-shadow: var(--shadow);
+    }
+
+    h2{
+      margin:0 0 10px;
+      font-size:18px;
+      letter-spacing:-0.2px;
+    }
+    h3{
+      margin:0 0 6px;
+      font-size:16px;
+    }
+    .muted{ color:var(--muted); }
+
+    /* Links + buttons */
+    a{
+      color:var(--link);
+      text-decoration:none;
+    }
+    a:hover{ text-decoration:underline; }
+
+    .actions{
+      margin-top: 10px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .button{
+      display:inline-block;
+      padding: 9px 14px;
+      background: var(--btn);
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      transition: background .18s ease, transform .18s ease;
+      text-decoration:none !important;
+      color: var(--text);
+      font-size:14px;
+    }
+    .button:hover{
+      background: var(--btnHover);
+      transform: translateY(-1px);
+    }
+
+    /* Project grid */
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-top: 10px;
+    }
+    @media(min-width: 860px){
+      .grid{ grid-template-columns: 1fr 1fr; }
+    }
+
+    .kpi{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+    .kpi .box{
+      border:1px solid var(--border);
+      border-radius: 12px;
+      padding: 10px 12px;
+      background: rgba(255,255,255,.02);
+      min-width: 160px;
+    }
+    .kpi b{
+      display:block;
+      font-size:16px;
+      margin-bottom:2px;
+    }
+
+    .footer{
+      margin-top: 22px;
+      color: var(--muted);
+      font-size: 13px;
+      opacity:.9;
+      animation: fadeUp .55s ease both;
+      animation-delay: .25s;
+    }
+
+    /* Smooth + subtle entrance */
+    @keyframes fadeUp{
+      from{ opacity:0; transform: translateY(10px); }
+      to{ opacity:1; transform: translateY(0); }
+    }
+
+    /* Stagger */
+    .card:nth-of-type(1){ animation-delay:.05s; }
+    .card:nth-of-type(2){ animation-delay:.10s; }
+    .card:nth-of-type(3){ animation-delay:.15s; }
+    .card:nth-of-type(4){ animation-delay:.20s; }
+    .card:nth-of-type(5){ animation-delay:.25s; }
+  </style>
 </head>
 
 <body>
+  <main class="container">
 
-<div class="container">
+    <section class="hero">
+      <div class="hero-left">
+        <h1>Muhammad Nur Zhifar</h1>
+        <p class="subtitle">Entry-Level Data Analyst • Prefer remote / mostly remote</p>
 
-<h1>Muhammad Nur Zhifar</h1>
-<p>Entry-Level Data Analyst | Python | Excel | Tableau | SQL</p>
+        <div class="chips">
+          <span class="chip">Excel (Cleaning)</span>
+          <span class="chip">Python (EDA)</span>
+          <span class="chip">Tableau (Dashboard)</span>
+          <span class="chip">SQL (Basic)</span>
+        </div>
+      </div>
 
-<div class="card">
-<h2>About Me</h2>
+      <!-- IMPORTANT: make sure you uploaded profile.jpg to the repo root -->
+      <div class="avatar" title="Profile photo">
+        <img src="./profile.jpg" alt="Muhammad Nur Zhifar profile photo" />
+      </div>
+    </section>
 
-<p>
-I am an entry-level Data Analyst transitioning from an operational background. I began learning data analysis in October 2025 and have developed several end-to-end portfolio projects using Excel, Python, SQL, and Tableau.
-</p>
+    <section class="card" id="about">
+      <h2>About</h2>
+      <p>
+        I’m an entry-level Data Analyst transitioning from an operational background. I started learning data analysis in October 2025 and built end-to-end portfolio projects using Excel for data cleaning, Python for analysis, Tableau for visualization, and SQL for querying.
+      </p>
+      <p class="muted" style="margin:10px 0 0;">
+        I’m aiming for a data analyst role with a remote-first setup.
+      </p>
+    </section>
 
-<p>
-I am most comfortable using Excel for data cleaning, Python for handling large datasets and analysis, and Tableau for data visualization. My goal is to work in a professional Data Analyst role, preferably in a remote working environment.
-</p>
+    <section class="card" id="projects">
+      <h2>Projects</h2>
 
-</div>
+      <div class="grid">
 
-<div class="card">
-<h2>Projects</h2>
+        <div class="card">
+          <h3>Internet Service Churn Analysis (DEEPP)</h3>
+          <p class="muted" style="margin:0;">Tools: Python, Tableau</p>
 
-<p>
-<b>Internet Service Churn Analysis</b><br>
-End-to-end churn analysis using Python and Tableau to identify key drivers affecting customer retention.
-</p>
+          <p style="margin:10px 0 0;">
+            End-to-end churn analysis to identify key retention drivers and support a clear action plan for reducing churn.
+          </p>
 
-<p>
-<b>Customer Segmentation Analysis</b><br>
-Customer segmentation using Python to identify behavior patterns and support business targeting strategies.
-</p>
+          <div class="kpi">
+            <div class="box">
+              <b>55.4%</b>
+              <span class="muted">overall churn rate</span>
+            </div>
+            <div class="box">
+              <b>99.8%</b>
+              <span class="muted">churn at 7x over-limit</span>
+            </div>
+            <div class="box">
+              <b>~42%</b>
+              <span class="muted">lower churn w/ bundling</span>
+            </div>
+          </div>
 
-<p>
-<b>SQL Data Analysis Project</b><br>
-Business data analysis using SQL including joins, aggregation, and insight extraction.
-</p>
+          <div class="actions">
+            <a class="button" href="https://public.tableau.com/app/profile/muhammad.nur.zhifar/viz/M4DEEPP/ChurnRatebyUploadUsage" target="_blank" rel="noreferrer">
+              View Dashboard
+            </a>
+            <a class="button" href="http://public.tableau.com/app/profile/muhammad.nur.zhifar/vizzes" target="_blank" rel="noreferrer">
+              Tableau Profile
+            </a>
+          </div>
+        </div>
 
-</div>
+        <div class="card">
+          <h3>Customer Segmentation (Python)</h3>
+          <p class="muted" style="margin:0;">Tools: Python</p>
 
-<div class="card">
-<h2>Links</h2>
+          <p style="margin:10px 0 0;">
+            Customer segmentation to identify customer groups and behavior patterns for clearer targeting and strategy.
+          </p>
 
-<p>
-Tableau Public:<br>
-<a href="http://public.tableau.com/app/profile/muhammad.nur.zhifar/vizzes" target="_blank">
-View My Tableau Portfolio
-</a>
-</p>
+          <p class="muted" style="margin:10px 0 0;">
+            (If you have a report/notebook link, put it here later.)
+          </p>
+        </div>
 
-</div>
+        <div class="card">
+          <h3>SQL Intermediate Analysis</h3>
+          <p class="muted" style="margin:0;">Tools: SQL</p>
 
-<div class="card">
-<h2>Contact</h2>
+          <p style="margin:10px 0 0;">
+            SQL analysis using joins, aggregation, filtering, and business-driven queries to extract insights.
+          </p>
 
-<p>Email: m.nurzhifar@gmail.com</p>
+          <p class="muted" style="margin:10px 0 0;">
+            (If you have a slide/report link, put it here later.)
+          </p>
+        </div>
 
-</div>
+      </div>
+    </section>
 
-</div>
+    <section class="card" id="skills">
+      <h2>Skills</h2>
+      <p>
+        <b>Excel</b> — data cleaning, transformation, analysis<br>
+        <b>Python</b> — data cleaning, EDA, handling large datasets, basic modeling<br>
+        <b>Tableau</b> — dashboards & data visualization<br>
+        <b>SQL</b> — querying, joins, aggregation (basic)
+      </p>
+    </section>
 
+    <section class="card" id="contact">
+      <h2>Contact</h2>
+      <p style="margin:0 0 10px;">
+        Email: <a href="mailto:m.nurzhifar@gmail.com">m.nurzhifar@gmail.com</a>
+      </p>
+      <div class="actions">
+        <a class="button" href="https://github.com/jiovarjiovanna" target="_blank" rel="noreferrer">GitHub</a>
+        <a class="button" href="http://public.tableau.com/app/profile/muhammad.nur.zhifar/vizzes" target="_blank" rel="noreferrer">Tableau</a>
+        <a class="button" href="https://www.linkedin.com/in/muhammad-nur-zhifar-34885a19b/?isSelfProfile=true" target="_blank" rel="noreferrer">LinkedIn</a>
+      </div>
+    </section>
+
+    <div class="footer">© <span id="y"></span> Muhammad Nur Zhifar</div>
+  </main>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
