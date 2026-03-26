@@ -22,27 +22,27 @@ body{
   margin:0;
   background:var(--bg);
   color:var(--text);
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial;
-  line-height:1.55;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  line-height:1.6;
 }
 
 .container{
-  max-width:1040px;
+  max-width:1100px;
   margin:auto;
   padding:24px;
 }
 
-/* ===== Topbar ===== */
+/* topbar */
 .topbar{
   position:sticky;
   top:0;
   z-index:50;
-  background:rgba(13,17,23,.86);
-  backdrop-filter: blur(10px);
+  background:rgba(13,17,23,.88);
+  backdrop-filter:blur(10px);
   border-bottom:1px solid var(--border);
 }
 .topbar-inner{
-  max-width:1040px;
+  max-width:1100px;
   margin:auto;
   padding:12px 24px;
   display:flex;
@@ -50,8 +50,10 @@ body{
   justify-content:space-between;
   gap:12px;
 }
-.brand{ font-weight:800; letter-spacing:-.2px; }
-
+.brand{
+  font-weight:800;
+  letter-spacing:-.2px;
+}
 .nav{
   display:flex;
   gap:16px;
@@ -62,22 +64,26 @@ body{
   text-decoration:none;
   font-size:14px;
 }
-.nav a:hover{ color:var(--accent); }
+.nav a:hover{
+  color:var(--accent);
+}
 
-/* ===== Hero ===== */
+/* hero */
 .hero{
   display:flex;
-  gap:20px;
+  gap:22px;
   align-items:center;
   justify-content:space-between;
   flex-wrap:wrap;
-  margin:22px 0 28px;
+  margin:24px 0 30px;
 }
-
-.hero-left{ min-width:260px; flex:1; }
+.hero-left{
+  min-width:280px;
+  flex:1;
+}
 .hero h1{
   margin:0;
-  font-size:44px;
+  font-size:46px;
   letter-spacing:-.8px;
 }
 .hero p{
@@ -86,7 +92,6 @@ body{
   font-size:18px;
 }
 
-/* Profile photo (NO CROP) */
 .avatar{
   width:140px;
   height:140px;
@@ -98,7 +103,6 @@ body{
   object-position:center top;
 }
 
-/* quick action buttons */
 .actions{
   margin-top:14px;
   display:flex;
@@ -124,99 +128,37 @@ body{
 .button.secondary{
   background:transparent;
   color:var(--text);
-  opacity:.9;
+  opacity:.92;
 }
 .button.secondary:hover{
   background:rgba(255,255,255,.04);
 }
 
-/* ===== Sections ===== */
+/* sections */
 .section{
-  margin:26px 0;
+  margin:28px 0;
 }
 .section h2{
   margin:0 0 14px;
-  font-size:36px;
+  font-size:34px;
   letter-spacing:-.6px;
 }
 
-/* ===== Project Grid ===== */
-.grid{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:16px;
-}
-@media(min-width:900px){
-  .grid{ grid-template-columns:1fr 1fr; }
-}
-
-.card{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:18px;
-  overflow:hidden;
-  transition:transform .15s ease, border-color .15s ease;
-}
-.card:hover{
-  transform:translateY(-2px);
-  border-color:rgba(88,166,255,.85);
-}
-
-.cover{
-  height:175px;
-  overflow:hidden;
-  border-bottom:1px solid rgba(48,54,61,.6);
-}
-.cover img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
-}
-.card-body{ padding:14px; }
-.card-body b{ font-size:16px; }
-.card-body p{ margin:8px 0 0; color:var(--muted); }
-
-.card-actions{
-  margin-top:12px;
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-}
-
-/* ===== Working Experience ===== */
 .block{
   background:var(--card);
   border:1px solid var(--border);
   border-radius:18px;
-  padding:16px;
+  padding:18px;
 }
-.block + .block{ margin-top:14px; }
+.block + .block{
+  margin-top:14px;
+}
 
-.secondary{ color:var(--muted); }
+.secondary{
+  color:var(--muted);
+}
 
-.work-flex{
-  display:flex;
-  gap:14px;
-  align-items:flex-start;
-  flex-wrap:wrap;
-  margin-top:10px;
-}
-.motor-left{
-  width:240px;
-  border-radius:16px;
-  overflow:hidden;
-  border:1px solid var(--border);
-}
-.motor-left img{
-  width:100%;
-  height:160px;
-  object-fit:cover;
-  display:block;
-}
-.work-text{ flex:1; min-width:240px; }
-
-/* ===== Education ===== */
+/* education */
 .edu{
   display:flex;
   gap:12px;
@@ -247,12 +189,47 @@ body{
   display:block;
 }
 
-/* ===== Certifications ===== */
+/* work */
+.work-flex{
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+  flex-wrap:wrap;
+  margin-top:10px;
+}
+.motor-left{
+  width:240px;
+  border-radius:16px;
+  overflow:hidden;
+  border:1px solid var(--border);
+}
+.motor-left img{
+  width:100%;
+  height:160px;
+  object-fit:cover;
+  display:block;
+}
+.work-text{
+  flex:1;
+  min-width:240px;
+}
+
+/* certifications */
+.cert-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:14px;
+}
+@media(min-width:900px){
+  .cert-grid{
+    grid-template-columns:1fr 1fr;
+  }
+}
 .cert-card{
   background:var(--card);
   border:1px solid var(--border);
   border-radius:18px;
-  padding:14px;
+  padding:16px;
 }
 .cert-head{
   display:flex;
@@ -282,7 +259,72 @@ body{
   flex-wrap:wrap;
 }
 
-/* ===== Skills ===== */
+/* projects */
+.grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:16px;
+}
+@media(min-width:980px){
+  .grid{
+    grid-template-columns:1fr 1fr;
+  }
+}
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:18px;
+  overflow:hidden;
+  transition:transform .15s ease, border-color .15s ease;
+}
+.card:hover{
+  transform:translateY(-2px);
+  border-color:rgba(88,166,255,.85);
+}
+.cover{
+  height:180px;
+  overflow:hidden;
+  border-bottom:1px solid rgba(48,54,61,.6);
+}
+.cover img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+.card-body{
+  padding:16px;
+}
+.card-body b{
+  font-size:16px;
+}
+.card-body p{
+  margin:10px 0 0;
+  color:var(--text);
+}
+.meta{
+  margin-top:10px;
+  color:var(--muted);
+  font-size:14px;
+}
+.meta strong{
+  color:var(--text);
+}
+.card-actions{
+  margin-top:14px;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+/* skills */
+.tools-line{
+  font-size:20px;
+  margin:0;
+}
+.tools-line b{
+  color:rgba(230,237,243,.95);
+}
 .soft{
   display:flex;
   gap:10px;
@@ -294,16 +336,11 @@ body{
   border-radius:999px;
   padding:7px 12px;
   font-size:14px;
-  color:rgba(230,237,243,.92); /* FIX: make visible */
+  color:rgba(230,237,243,.92);
   background:rgba(255,255,255,.02);
 }
-.tools-line{
-  font-size:20px;
-  margin:0;
-}
-.tools-line b{ color:rgba(230,237,243,.95); }
 
-/* ===== Contact ===== */
+/* contact */
 .contact-wrap{
   display:flex;
   gap:12px;
@@ -324,10 +361,11 @@ body{
   <div class="topbar-inner">
     <div class="brand">Muhammad Nur Zhifar</div>
     <div class="nav">
-      <a href="#projects">Projects</a>
-      <a href="#work">Working Experience</a>
+      <a href="#about">About</a>
       <a href="#education">Education</a>
+      <a href="#work">Work</a>
       <a href="#certifications">Certifications</a>
+      <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
     </div>
@@ -339,8 +377,8 @@ body{
   <!-- HERO -->
   <section class="hero">
     <div class="hero-left">
-      <h1>Data Analyst</h1>
-      <p>Entry-level Data Analyst focused on practical data analysis, visualization, and business insights.</p>
+      <h1>Junior Data Analyst</h1>
+      <p>Focused on data cleaning, preparation, analysis, and turning messy data into structured business-ready insights.</p>
 
       <div class="actions">
         <a class="button" href="http://public.tableau.com/app/profile/muhammad.nur.zhifar/vizzes" target="_blank" rel="noreferrer">Tableau</a>
@@ -351,57 +389,44 @@ body{
     <img src="./profile.jpg" alt="Muhammad Nur Zhifar" class="avatar" />
   </section>
 
-  <!-- PROJECTS -->
-  <section id="projects" class="section">
-    <h2>Projects</h2>
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <h2>About Me</h2>
+    <div class="block">
+      <p style="margin:0;">
+        I am a Communication Science graduate with experience analyzing human behavior and translating it into structured data. I am used to observing patterns, identifying relationships, and organizing information into data that can support marketing and business needs.
+      </p>
+      <p style="margin:12px 0 0;">
+        I have a strong interest in behavioral patterns and predictive thinking, which helps me approach data not only as numbers but as insights into real-world behavior. This perspective supports my ability to explore patterns, detect anomalies, and understand potential future trends.
+      </p>
+      <p style="margin:12px 0 0;">
+        I am currently building my career as a Junior Data Analyst with a strong focus on data cleaning and data preparation. I genuinely enjoy working with messy datasets and transforming them into clean, structured, and analysis-ready data using Excel and Python (Pandas). I am committed to contributing to business needs through practical analysis and reliable data preparation.
+      </p>
+    </div>
+  </section>
 
-    <div class="grid">
+  <!-- EDUCATION -->
+  <section id="education" class="section">
+    <h2>Education & Training</h2>
 
-      <div class="card">
-        <div class="cover"><img src="./cover-deep.png" alt="DEEPP cover"></div>
-        <div class="card-body">
-          <b>DEEPP — End-to-End Churn Analysis</b>
-          <p>Churn analysis project with end-to-end workflow and dashboard output.</p>
-          <div class="card-actions">
-            <a class="button" href="./DEEPP.pdf" target="_blank" rel="noreferrer">Open PDF</a>
-            <a class="button secondary" href="https://public.tableau.com/app/profile/muhammad.nur.zhifar/viz/M4DEEPP/ChurnRatebyUploadUsage" target="_blank" rel="noreferrer">Dashboard</a>
-          </div>
-        </div>
+    <div class="edu">
+      <div class="logo">
+        <img src="./ut.png" alt="Universitas Terbuka logo">
       </div>
-
-      <div class="card">
-        <div class="cover"><img src="./cover-phyton.png" alt="Python segmentation cover"></div>
-        <div class="card-body">
-          <b>Customer Segmentation (Python)</b>
-          <p>Customer grouping to understand segments and behavior patterns.</p>
-          <div class="card-actions">
-            <a class="button" href="./Phyton.pdf" target="_blank" rel="noreferrer">Open PDF</a>
-          </div>
-        </div>
+      <div>
+        <b>Universitas Terbuka</b><br>
+        <span class="secondary">Bachelor’s Degree — Communication Science</span>
       </div>
+    </div>
 
-      <div class="card">
-        <div class="cover"><img src="./cover-sql.png" alt="SQL cover"></div>
-        <div class="card-body">
-          <b>REVO Grocers — Sales Performance (SQL)</b>
-          <p>Business-driven queries to extract insights from sales data.</p>
-          <div class="card-actions">
-            <a class="button" href="./SQL.pdf" target="_blank" rel="noreferrer">Open PDF</a>
-          </div>
-        </div>
+    <div class="edu">
+      <div class="logo">
+        <img src="./revou.png" alt="RevoU logo">
       </div>
-
-      <div class="card">
-        <div class="cover"><img src="./cover-excel.png" alt="Excel cover"></div>
-        <div class="card-body">
-          <b>TokoBli — Campaign & Product Page (Excel)</b>
-          <p>Campaign evaluation and product page analysis using spreadsheets.</p>
-          <div class="card-actions">
-            <a class="button" href="./Excel.pdf" target="_blank" rel="noreferrer">Open PDF</a>
-          </div>
-        </div>
+      <div>
+        <b>RevoU</b><br>
+        <span class="secondary">Full Stack Data Analytics</span>
       </div>
-
     </div>
   </section>
 
@@ -434,50 +459,119 @@ body{
     </div>
   </section>
 
-  <!-- EDUCATION -->
-  <section id="education" class="section">
-    <h2>Education</h2>
+  <!-- CERTIFICATIONS -->
+  <section id="certifications" class="section">
+    <h2>Course Experience & Certifications</h2>
 
-    <div class="edu">
-      <div class="logo">
-        <img src="./ut.png" alt="Universitas Terbuka logo">
-      </div>
-      <div>
-        <b>Universitas Terbuka</b><br>
-        <span class="secondary">Bachelor’s Degree — Communication Science</span>
-      </div>
-    </div>
+    <div class="cert-grid">
 
-    <div class="edu">
-      <div class="logo">
-        <img src="./revou.png" alt="RevoU logo">
+      <div class="cert-card">
+        <div class="cert-head">
+          <div class="cert-logo">
+            <img src="./ef.png" alt="EF logo">
+          </div>
+          <div>
+            <b>EF Bogor Taman Yasmin — English Training</b><br>
+            <span class="secondary">Completed Frontrunner 7 (B1.2.1) & Frontrunner 8 (B1.2.2)</span>
+          </div>
+        </div>
+
+        <div class="cert-actions">
+          <a class="button" href="./certificatefr7.png" target="_blank" rel="noreferrer">View FR7</a>
+          <a class="button secondary" href="./certificatefr8.png" target="_blank" rel="noreferrer">View FR8</a>
+        </div>
       </div>
-      <div>
-        <b>RevoU</b><br>
-        <span class="secondary">Full Stack Data Analytics</span>
+
+      <div class="cert-card">
+        <div class="cert-head">
+          <div class="cert-logo">
+            <img src="./revou.png" alt="RevoU logo">
+          </div>
+          <div>
+            <b>RevoU — Full Stack Data Analytics</b><br>
+            <span class="secondary">Course Certificate</span>
+          </div>
+        </div>
+
+        <div class="cert-actions">
+          <a class="button" href="./certificate-fsda.pdf" target="_blank" rel="noreferrer">View Certificate</a>
+        </div>
       </div>
+
     </div>
   </section>
 
-  <!-- CERTIFICATIONS -->
-  <section id="certifications" class="section">
-    <h2>Certifications</h2>
+  <!-- PROJECTS -->
+  <section id="projects" class="section">
+    <h2>Project Experiences</h2>
 
-    <div class="cert-card">
-      <div class="cert-head">
-        <div class="cert-logo">
-          <img src="./ef.png" alt="EF logo">
-        </div>
-        <div>
-          <b>EF Bogor Taman Yasmin — English Training</b><br>
-          <span class="secondary">Completed Frontrunner 7 (B1.2.1) & Frontrunner 8 (B1.2.2)</span>
+    <div class="grid">
+
+      <div class="card">
+        <div class="cover"><img src="./cover-deep1.png" alt="DEEPP cover"></div>
+        <div class="card-body">
+          <b>Internet Service Churn Analysis</b>
+          <div class="meta">Tools: Python, Pandas, Tableau</div>
+          <p><strong>Background:</strong> Internet service businesses need to understand churn behavior to protect retention and recurring revenue.</p>
+          <p><strong>Methodology:</strong> Data cleaning, exploratory data analysis, customer behavior analysis, and dashboard-based visualization.</p>
+          <p><strong>Solution:</strong> Cleaned the churn dataset (72K rows, 11 columns), handled missing values, and analyzed behavior patterns to identify churn risk.</p>
+          <p><strong>Metrics:</strong> Churn rate, customer behavior patterns, churn-related variables, and dashboard insights.</p>
+          <p><strong>Result:</strong> Produced a structured churn analysis that supports data-driven retention decisions and highlights customer risk patterns.</p>
+          <div class="card-actions">
+            <a class="button" href="./DEEPP1.pdf" target="_blank" rel="noreferrer">Open PDF</a>
+            <a class="button secondary" href="https://public.tableau.com/app/profile/muhammad.nur.zhifar/viz/M4DEEPP/ChurnRatebyUploadUsage" target="_blank" rel="noreferrer">Dashboard</a>
+          </div>
         </div>
       </div>
 
-      <div class="cert-actions">
-        <a class="button" href="./certificatefr7.png" target="_blank" rel="noreferrer">View FR7</a>
-        <a class="button secondary" href="./certificatefr8.png" target="_blank" rel="noreferrer">View FR8</a>
+      <div class="card">
+        <div class="cover"><img src="./cover-phyton.png" alt="Customer segmentation cover"></div>
+        <div class="card-body">
+          <b>Credit Card Customer Segmentation Analysis</b>
+          <div class="meta">Tools: Python, Pandas</div>
+          <p><strong>Background:</strong> Customer segmentation helps businesses understand different customer groups and support targeted decision-making.</p>
+          <p><strong>Methodology:</strong> Data cleaning, filtering, merging datasets, and segmentation-ready data preparation.</p>
+          <p><strong>Solution:</strong> Cleaned and filtered datasets (5,599 → 1,059 records), handled 13K+ missing values, and merged datasets into 1,025 clean records.</p>
+          <p><strong>Metrics:</strong> Record quality, missing values, filtered records, and merged dataset readiness.</p>
+          <p><strong>Result:</strong> Built a clean and structured dataset that enables customer segmentation and more targeted business insights.</p>
+          <div class="card-actions">
+            <a class="button" href="./Phyton.pdf" target="_blank" rel="noreferrer">Open PDF</a>
+          </div>
+        </div>
       </div>
+
+      <div class="card">
+        <div class="cover"><img src="./cover-sql.png" alt="SQL cover"></div>
+        <div class="card-body">
+          <b>Revo Grocers Sales Performance Analysis</b>
+          <div class="meta">Tools: SQL, BigQuery</div>
+          <p><strong>Background:</strong> Large-scale grocery transaction data can be used to identify revenue drivers and purchasing behavior across categories.</p>
+          <p><strong>Methodology:</strong> SQL querying, aggregation, category-level analysis, and business-oriented performance review.</p>
+          <p><strong>Solution:</strong> Queried and analyzed a large dataset (851K transactions, 98K customers) and aggregated results across 11 categories.</p>
+          <p><strong>Metrics:</strong> Transaction volume, customer count, category-level sales contribution, and purchasing patterns.</p>
+          <p><strong>Result:</strong> Identified revenue drivers and customer purchasing behavior patterns to support sales performance evaluation.</p>
+          <div class="card-actions">
+            <a class="button" href="./SQL.pdf" target="_blank" rel="noreferrer">Open PDF</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="cover"><img src="./cover-excel.png" alt="Excel cover"></div>
+        <div class="card-body">
+          <b>TokoBli Campaign Evaluation & Product Page Analysis</b>
+          <div class="meta">Tools: Excel, Pivot Tables, Spreadsheets</div>
+          <p><strong>Background:</strong> Campaign evaluation is important to understand marketing performance and improve decision-making.</p>
+          <p><strong>Methodology:</strong> Spreadsheet cleaning, data consistency checks, pivot table analysis, and campaign performance evaluation.</p>
+          <p><strong>Solution:</strong> Cleaned the dataset by removing 99% empty columns, fixing inconsistencies, and evaluating campaign performance through Excel.</p>
+          <p><strong>Metrics:</strong> Data reliability, campaign-related analysis points, and pivot-based performance review.</p>
+          <p><strong>Result:</strong> Produced a cleaner and more reliable dataset that supports marketing analysis and campaign decision-making.</p>
+          <div class="card-actions">
+            <a class="button" href="./Excel.pdf" target="_blank" rel="noreferrer">Open PDF</a>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
